@@ -148,7 +148,7 @@ useEffect(() => {
   //Displays the table for the inventory. Using bootstrap css
   return (
     <div className="App">
-      <h1>Registration</h1>
+      {/* <h1>Registration</h1>
             <label>Username</label>
             <input type="text" onChange={(e)=>{setUsernameReg(e.target.value)}}/>
             <label>Password</label>
@@ -163,8 +163,8 @@ useEffect(() => {
       <input type="password" onChange={(e)=>{setPassword(e.target.value)}}/>
       <button onClick={login}>Login</button>
       <h1>{loginStatus}</h1>
-    </div>
-    :
+    </div> */}
+    
     <div>
       <form className='text-center'>
         <div className='row mb-3'>
@@ -213,7 +213,7 @@ useEffect(() => {
         </table>
       </div>
       </div>
-      }
+      
     </div>
   );
 }
