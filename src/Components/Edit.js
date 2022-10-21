@@ -20,21 +20,21 @@ const Edit = ({item, onDelete, onUpdate, onStockChange, onLocationChange}) =>{
 
   return(
     !edit ?
-          <tr key={item.id} style={item.stock === 0 || item.stock <= 5 ? { color: "red"}: {borderColor: "black"}} >
+          <tr key={item.id} >
             <td>{item.name}</td>
             <td>{item.description}</td>
             <td>{item.location}</td>
-            <td>{item.stock}</td>
+            <td style={item.stock === 0 || item.stock <= 5 ? { color: "red"}: {color: "black"}} >{item.stock}</td>
             <td>
               <button onClick={()=>{setEdit()}} className='btn btn-dark text-nowrap'>Edit</button>
               <button onClick={()=>{onDelete(item.id)}} className="btn btn-danger text-nowrap">Delete</button>
             </td>
           </tr> :
-          <tr key={item.id} style={item.stock === 0 || item.stock <= 5 ? {color: "red"}: {borderColor: "black"}} > 
+          <tr key={item.id}> 
           <td>{item.name}</td>
           <td>{item.description}</td>
           <td><input type="text" defaultValue={item.location} onChange={onLocationChange}/></td>
-          <td><input type="number" defaultValue={item.stock} onChange={onStockChange}/></td>
+          <td style={item.stock === 0 || item.stock <= 5 ? { color: "red"}: {color: "black"}}><input type="number" defaultValue={item.stock} onChange={onStockChange}/></td>
           <td>
             <button onClick={()=>{onUpdate(item.id); setEdit();window.location.reload(false);}} className="btn btn-success text-nowrap">Update</button>
             <button onClick={()=>{onDelete(item.id)}} className="btn btn-danger text-nowrap">Delete</button>
