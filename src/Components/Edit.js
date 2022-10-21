@@ -33,7 +33,7 @@ const Edit = ({item, onDelete, onUpdate, onStockChange, onLocationChange}) =>{
           <tr key={item.id}> 
           <td>{item.name}</td>
           <td>{item.description}</td>
-          <td><input type="text" defaultValue={item.location} onChange={onLocationChange}/></td>
+          <td>{item.location}</td>
           <td style={item.stock === 0 || item.stock <= 5 ? { color: "red"}: {color: "black"}}><input type="number" defaultValue={item.stock} onChange={onStockChange}/></td>
           <td>
             <button onClick={()=>{onUpdate(item.id); setEdit();window.location.reload(false);}} className="btn btn-success text-nowrap">Update</button>

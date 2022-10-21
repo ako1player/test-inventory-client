@@ -103,12 +103,12 @@ function App() {
 
 //supposed to update item. Still needs work.
 const updateItem = (id) =>{
-    Axios.put('https://inventory-test-zukowski.herokuapp.com/update/', { location: newLocation,stock: newStock, id: id}).then((response) =>{
+    Axios.put('https://inventory-test-zukowski.herokuapp.com/update/', { stock: newStock, id: id}).then((response) =>{
       setItemList(itemList.map((val) =>{
         //this just rerenders page once updated
         return val.id === id ? 
           {
-          id: val.id, name: val.name, description: val.description, stock: newStock, location: newLocation
+          id: val.id, name: val.name, description: val.description, stock: newStock, location: val.location
           } 
           : 
         val;
@@ -132,9 +132,9 @@ const handleChange = (e) => {
 //   setNewName(e.currentTarget.value);
 // } 
 
-const handleChangeLocation = (e) => {
-  setNewLocation(e.currentTarget.value);
-} 
+// const handleChangeLocation = (e) => {
+//   setNewLocation(e.currentTarget.value);
+// } 
 
 //for cookie allowing user to stay logged in
 useEffect(() => {
@@ -207,7 +207,7 @@ useEffect(() => {
           </thead>
           <tbody>
         {filterItems.map((val, key) =>(//gets the items from the itemList useState array and displays name,description, location, and stock
-         <Edit key={val.id} item={val} onDelete={itemDel => cnfmDelete(val.id)} onUpdate={itemUpdate => updateItem(val.id)} onStockChange={handleChange} onLocationChange={handleChangeLocation}/>
+         <Edit key={val.id} item={val} onDelete={itemDel => cnfmDelete(val.id)} onUpdate={itemUpdate => updateItem(val.id)} onStockChange={handleChange} />
         ))}
           </tbody>
         </table>
