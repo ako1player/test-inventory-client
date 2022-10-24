@@ -145,6 +145,21 @@ useEffect(() => {
   })
 }, []);
 
+// Hook
+// Parameter is the boolean, with default "false" value
+const useToggle = (initialState = false) => {
+  // Initialize the state
+  const [state, setState] = useState(initialState);
+  
+  // Define and memorize toggler function in case we pass down the component,
+  // This function change the boolean value to it's opposite value
+  const toggle = useCallback(() => setState(state => !state), []);
+  
+  return [state, toggle]
+}
+
+const [edit, setEdit] = useToggle();
+
   //Displays the table for the inventory. Using bootstrap css
   return (
     <div className="App">
@@ -166,6 +181,10 @@ useEffect(() => {
     </div> */}
     
     <div>
+      <div className='text-center'>
+        <button onClick={()=> setEdit()} className="btn btn-dark">Create Item</button>
+      </div>
+      {edit &&
       <form className='text-center'>
         <div className='row mb-3'>
           <label>Name:</label>
@@ -193,16 +212,17 @@ useEffect(() => {
         </div>
           <button onClick={addItem} className="btn btn-dark mb-2">Add Item</button>
       </form>
-      <div className="items table-responsive">
+      }
+      <div className="items table-responsive text-center">
         <Search query={query} onQueryChange={myQuery => setQuery(myQuery)}/>
         <table className="table table-bordered">
           <thead className='table table-dark'>
           <tr>
-            <th scope='col' className='col-sm-2'>Name</th>
-            <th scope='col' className='col-sm-2'>Description</th>
+            <th scope='col' className='col-sm-1'>Name</th>
+            <th scope='col' className='col-sm-3'>Description</th>
             <th scope='col' className='col-sm-2'>Location</th>
-            <th scope='col' className='col-sm-2'>On Hand</th>
-            <th scope='col' className='col-sm-2'></th>
+            <th scope='col' className='col-sm-1'>On Hand</th>
+            <th scope='col' className='col-sm-1'></th>
           </tr>
           </thead>
           <tbody>

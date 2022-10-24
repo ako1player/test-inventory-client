@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useCallback } from "react";
 import {FaTimes} from "react-icons/fa";
 
-const Edit = ({item, onDelete, onUpdate, onStockChange, onLocationChange}) =>{
+const Edit = ({item, onDelete, onUpdate, onStockChange}) =>{
 // Hook
 // Parameter is the boolean, with default "false" value
   const useToggle = (initialState = false) => {
