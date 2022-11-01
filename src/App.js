@@ -113,6 +113,9 @@ function App() {
 
 //supposed to update item. Still needs work.
 const updateItem = (id) =>{
+  if(stock === newStock){
+    setStock(stock);
+  } else {
     Axios.put('https://inventory-test-zukowski.herokuapp.com/update/', { stock: newStock, id: id}).then((response) =>{
       setItemList(itemList.map((val) =>{
         //this just rerenders page once updated
@@ -125,6 +128,7 @@ const updateItem = (id) =>{
       }))
     });
     setNewStock(0);
+  }
 }
 
 
