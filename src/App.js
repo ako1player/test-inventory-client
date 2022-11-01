@@ -124,6 +124,7 @@ const updateItem = (id) =>{
         val;
       }))
     });
+    setNewStock(0);
 }
 
 
