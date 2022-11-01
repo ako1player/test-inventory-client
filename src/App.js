@@ -59,7 +59,12 @@ function App() {
     };
 
   //adds item to database
-  const addItem = () =>{
+  const addItem = (e) =>{
+    if(name.trim().length === 0 || desc.trim().length === 0 || location.trim().length === 0){
+      alert("Name/Description/Location is required");
+      e.preventDefault();
+    }
+    else {
     Axios.post('https://inventory-test-zukowski.herokuapp.com/create', {
       name: name,
       desc: desc,
@@ -73,6 +78,11 @@ function App() {
           location: location,
         },]);
     });
+    setName("");
+    setDesc("");
+    setLocation("");
+    setStock(0);
+  }
   };
 
   //filters items when using seach bar
@@ -181,13 +191,14 @@ const [edit, setEdit] = useToggle();
     </div> */}
     
     <div>
-      <div className='text-center'>
+      {!edit ?
+      <div className='text-center pt-3'>
         <button onClick={()=> setEdit()} className="btn btn-dark">Create Item</button>
       </div>
-      {edit &&
+      :
       <form className='text-center'>
         <div className='row mb-3'>
-          <label>Name:</label>
+          <label>Item Name:</label>
           <div className='col-sm'>
           <input type="text" onChange={(event)=>{setName(event.target.value)}}/>
           </div>
@@ -210,13 +221,18 @@ const [edit, setEdit] = useToggle();
           <input type="number" min="0" onChange={(event)=>{setStock(event.target.value)}}/>
           </div>
         </div>
-          <button onClick={addItem} className="btn btn-dark mb-2">Add Item</button>
+        <div>
+        <button onClick={addItem} className="btn btn-dark mb-2">Add Item</button>
+        </div>
+        <button onClick={()=>setEdit()} className="btn btn-dark mb-2">Cancel</button>
       </form>
       }
-      <div className="items table-responsive text-center">
-        <Search query={query} onQueryChange={myQuery => setQuery(myQuery)}/>
+      <div className="items position-relative text-center">
+        <div className='float-sm-start'>
+          <Search query={query} onQueryChange={myQuery => setQuery(myQuery)}/>
+        </div>
         <table className="table table-bordered">
-          <thead className='table table-dark'>
+          <thead className='table-dark sticky-top'>
           <tr>
             <th scope='col' className='col-sm-1'>Name</th>
             <th scope='col' className='col-sm-3'>Description</th>
