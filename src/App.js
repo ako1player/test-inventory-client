@@ -11,6 +11,7 @@ May need to have nodejs installed on computer
 */
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.js'
 import { useState, useEffect, useCallback} from "react";
 import Axios from 'axios';
 import Edit from './Components/Edit';
@@ -71,12 +72,12 @@ function App() {
       stock: stock,
       location: location
     }).then(() =>{
-        setItemList([...itemList, { //displayes items once added to the database. rerenders the page
+        setItemList([{ //displayes items once added to the database. rerenders the page
           name: name,
           description: desc,
           stock: stock,
           location: location,
-        },]);
+        }, ...itemList,]);
     });
     setName("");
     setDesc("");
@@ -101,6 +102,17 @@ function App() {
     });
   },[]);
 
+  const sortByDesc = () =>{
+    Axios.get('https://inventory-test-zukowski.herokuapp.com/inventoryDesc').then((response) =>{
+      setItemList(response.data);
+  })
+}
+
+const sortByAsc = () =>{
+    Axios.get('https://inventory-test-zukowski.herokuapp.com/inventoryAsc').then((response) =>{
+      setItemList(response.data);
+  })
+}
 
   //deletes item from inventory using ID from the database
   const deleteItem = (id) =>{
@@ -197,7 +209,7 @@ const [edit, setEdit] = useToggle();
     
     <div>
       {!edit ?
-      <div className='text-center pt-3'>
+      <div className='text-center pt-3 mb-5'>
         <button onClick={()=> setEdit()} className="btn btn-dark">Create Item</button>
       </div>
       :
@@ -233,13 +245,16 @@ const [edit, setEdit] = useToggle();
       </form>
       }
       <div className="items position-relative text-center">
-        <div className='float-sm-start'>
+        <div className='float-sm-start mx-2'>
           <Search query={query} onQueryChange={myQuery => setQuery(myQuery)}/>
+        </div>
+        <div className='float-sm-end mx-2'>
+        <DropdownButton sortByAsc={()=>sortByAsc()} sortByDesc={()=>sortByDesc()}/>
         </div>
         <table className="table table-bordered">
           <thead className='table-dark sticky-top'>
           <tr>
-            <th scope='col' className='col-sm-1'>Name</th>
+            <th scope='col' className='col-sm-1'>Item</th>
             <th scope='col' className='col-sm-3'>Description</th>
             <th scope='col' className='col-sm-2'>Location</th>
             <th scope='col' className='col-sm-1'>On Hand</th>
