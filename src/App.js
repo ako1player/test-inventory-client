@@ -9,7 +9,6 @@ make sure you are in the inventory-version2 folder
 once in the directory type in "npm start" which should start the program.
 May need to have nodejs installed on computer
 */
-import './App.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.js'
 import { useState, useEffect, useCallback} from "react";
