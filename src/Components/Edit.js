@@ -50,7 +50,7 @@ const Edit = ({item, onDelete, onUpdate, onStockChange}) =>{
             </div>
           <div className="flex items-start"><b className="font-bold text-blue-500">Location:</b> {item.location}</div>
           <div className="flex items-start"  style={item.stock === 0 || item.stock <= 5 ? {color:"red"}: {color: "black"}}><b className="font-bold text-blue-500">Stock:</b> {item.stock}</div>
-          <div className="flex items-start"><b className="font-bold text-blue-500">Description:</b> {item.description}</div>
+          <div className="flex items-start"><b className="font-bold text-blue-500">Part Number:</b> {item.description}</div>
           </div>
         </li>
         :
@@ -67,7 +67,7 @@ const Edit = ({item, onDelete, onUpdate, onStockChange}) =>{
           </div>
           <div className="flex items-start"><b className="font-bold text-blue-500">Location:</b> {item.location}</div>
           <div className="flex items-start"  style={item.stock === 0 || item.stock <= 5 ? {color:"red"}: {color: "black"}}><b className="font-bold text-blue-500">Stock:</b><input type="number" defaultValue={item.stock} onChange={onStockChange} className="max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"/></div>
-          <div className="flex items-start"><b className="font-bold text-blue-500">Description:</b> {item.description}</div>
+          <div className="flex items-start"><b className="font-bold text-blue-500">Part Number:</b> {item.description}</div>
         </div>
         </li>
   )
