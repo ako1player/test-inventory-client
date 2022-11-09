@@ -310,11 +310,11 @@ const [edit, setEdit] = useState(false);
 </div>
 <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start  sm:pt-5">
   <label className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-    Description
+    Part Number:
   </label>
   <div className="mt-1 sm:mt-0 sm:col-span-2">
     <textarea name="description" rows="3" onChange={(event)=>{setDesc(event.target.value)}}
-      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Description about the item"></textarea>
+      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Part Number"></textarea>
   </div>
 </div>
 
