@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useCallback } from "react";
 import {FaTimes} from "react-icons/fa";
+import { BiTrash } from "react-icons/bi";
 
 const Edit = ({item, onDelete, onUpdate, onStockChange}) =>{
 // // Hook
