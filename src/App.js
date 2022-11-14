@@ -16,7 +16,7 @@ import Axios from 'axios';
 import Edit from './Components/Edit';
 import Search from './Components/Search';
 // import DropdownButton from './Components/Dropdown';
-import {BsPlus} from "react-icons/bs";
+import {BsPlus, BsFillMoonStarsFill} from "react-icons/bs";
 import {MdOutlineInventory} from "react-icons/md";
 
 //App is what renders what shows on the browser
@@ -192,7 +192,7 @@ const [edit, setEdit] = useState(false);
 
   //Displays the table for the inventory. Using bootstrap css
   return (
-    <div className="App">
+    <div className={darkMode ? 'dark dark:mx-auto font-medium bg-gray-900' : " mx-auto font-medium"}>
       {/* <h1>Registration</h1>
             <label>Username</label>
             <input type="text" onChange={(e)=>{setUsernameReg(e.target.value)}}/>
@@ -273,14 +273,17 @@ const [edit, setEdit] = useState(false);
       </div>
       </div> */}
   <div>
-      <h1 className="text-5xl mb-3"><MdOutlineInventory className="inline-block text-blue-400"/>Inventory</h1>
+    <div className="flex items-center">
+        <div className="flex"><h1 className="text-5xl mb-3 dark:text-white"><MdOutlineInventory className="inline-block text-blue-400"/>Inventory</h1></div>
+        <div className="flex-none"><BsFillMoonStarsFill onClick={()=> setDarkMode(!darkMode)} className='cursor-pointer text-2xl dark:text-yellow-200'/></div>
+      </div>
       <button onClick={()=> setEdit(!edit)} className={`bg-blue-400 text-white px-2 py-3 w-full text-left rounded-t-md ${edit ? 'rounded-t-md' : 'rounded-md'}`}>
     <div><BsPlus className="inline-block align-text-top"/> Create Item</div></button>
 {edit && 
 
-<div className="border-r-2 border-b-2 border-l-2 border-light-blue-500 rounded-b-md pl-4 pr-4 pb-4">
+<div className="border-r-2 border-b-2 border-l-2 border-light-blue-500 rounded-b-md pl-4 pr-4 pb-4 dark:border-gray-600">
 <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start  sm:pt-5">
-  <label className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+  <label className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2 dark:text-white">
     Item Name
   </label>
   <div className="mt-1 sm:mt-0 sm:col-span-2">
@@ -290,7 +293,7 @@ const [edit, setEdit] = useState(false);
 </div>
 
 <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start  sm:pt-5">
-  <label className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+  <label className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2 dark:text-white">
     Location
   </label>
   <div className="mt-1 sm:mt-0 sm:col-span-2">
@@ -300,7 +303,7 @@ const [edit, setEdit] = useState(false);
 </div>
 
 <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start  sm:pt-5">
-  <label className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+  <label className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2  dark:text-white">
     Stock
   </label>
   <div className="mt-1 sm:mt-0 sm:col-span-2">
@@ -309,12 +312,12 @@ const [edit, setEdit] = useState(false);
   </div>
 </div>
 <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start  sm:pt-5">
-  <label className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-    Part Number:
+  <label className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2  dark:text-white">
+    Description
   </label>
   <div className="mt-1 sm:mt-0 sm:col-span-2">
     <textarea name="description" rows="3" onChange={(event)=>{setDesc(event.target.value)}}
-      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Part Number"></textarea>
+      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Description about the item"></textarea>
   </div>
 </div>
 
@@ -378,7 +381,7 @@ const [edit, setEdit] = useState(false);
         ))}
           </tbody>
         </table> */}
-        <ul className="divide-y divide-gray-200">
+        <ul className="divide-y divide-gray-200 dark:divide-gray-600">
         {filterItems.map((val, key) =>(//gets the items from the itemList useState array and displays name,description, location, and stock
          <Edit key={val.id} item={val} onDelete={itemDel => cnfmDelete(val.id)} onUpdate={itemUpdate => updateItem(val.id)} onStockChange={handleChange} />
         ))}

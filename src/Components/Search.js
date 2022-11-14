@@ -1,13 +1,3 @@
-// const Search = ({query, onQueryChange}) =>{
-//     return(
-//         <div className="text-center py-2">
-//             <input type="text" name="query" id="query" value={query} onChange={(event => {onQueryChange(event.target.value)})} placeholder="Search by Name..." />
-//         </div>
-//     )
-// }
-
-// export default Search;
-
 import {AiOutlineSearch} from "react-icons/ai";
 import { BiCaretDown } from "react-icons/bi";
 import { useState } from "react";
@@ -18,13 +8,13 @@ const DropDown = ({toggle, sortByDesc, sortByAsc}) =>{
   }
   return (
     <div className="origin-top-right absolute right-0 mt-2 w-56
-      rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+      rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 dark:bg-gray-900 dark:ring-gray-500">
       <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
         <div onClick={sortByAsc}
-          className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
+          className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer dark:text-white dark:hover:bg-gray-500"
           role="menuitem">Low to High Stock</div>
         <div onClick={sortByDesc}
-          className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer"
+          className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer dark:text-white dark:hover:bg-gray-500"
           role="menuitem">High to Low Stock</div>
       </div>
     </div>
@@ -38,11 +28,11 @@ const Search = ({query, onQueryChange, sortByAsc, sortByDesc}) =>{
         <div className="py-5">
         <div className="mt-1 relative rounded-md shadow-sm">
         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <AiOutlineSearch />
+          <AiOutlineSearch className="dark:text-white"/>
           <label htmlFor="query" className="sr-only" />
         </div>
         <input type="text" name="query" id="query" value={query} onChange={(event => {onQueryChange(event.target.value)})}
-          className="pl-8 rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300" placeholder="Search" />
+          className="pl-8 rounded-md focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 dark:bg-gray-900 dark:border-gray-600" placeholder="Search" />
           <div className="absolute inset-y-0 right-0 flex items-center">
             <div>
             <button onClick={()=>setToggleSort(!toggleSort)} 
