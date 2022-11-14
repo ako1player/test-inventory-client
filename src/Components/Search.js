@@ -36,7 +36,7 @@ const Search = ({query, onQueryChange, sortByAsc, sortByDesc}) =>{
           <div className="absolute inset-y-0 right-0 flex items-center">
             <div>
             <button onClick={()=>setToggleSort(!toggleSort)} 
-                className="justify-center px-4 py-2 bg-blue-400 border-2 border-blue-400 text-sm text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 flex items-center" type="button" aria-haspopup="true" aria-expanded="true">
+                className="justify-center px-4 py-2 bg-blue-400 rounded border-2 border-blue-400 text-sm text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 flex items-center" type="button" aria-haspopup="true" aria-expanded="true">
                 Filter <BiCaretDown className="ml-2" />
             </button>
             <DropDown toggle={toggleSort}

@@ -200,7 +200,7 @@ const [edit, setEdit] = useState(false);
             <input type="text" onChange={(e)=>{setUsernameReg(e.target.value)}}/>
             <label>Password</label>
             <input type="password" onChange={(e)=>{setPasswordReg(e.target.value)}}/>
-            <button onClick={register}>Register</button>
+            <button onClick={register}>Register</button> */}
       {!loginStatus ?
       <div>
       <h1>Login</h1>
@@ -210,72 +210,10 @@ const [edit, setEdit] = useState(false);
       <input type="password" onChange={(e)=>{setPassword(e.target.value)}}/>
       <button onClick={login}>Login</button>
       <h1>{loginStatus}</h1>
-    </div> */}
-    
-    {/* <div>
-      {!edit ?
-      <div className='text-center pt-3 mb-5'>
-        <button onClick={()=> setEdit()} className="btn btn-dark">Create Item</button>
-      </div>
-      :
-      <form className='text-center'>
-        <div className='row mb-3'>
-          <label>Item Name:</label>
-          <div className='col-sm'>
-          <input type="text" onChange={(event)=>{setName(event.target.value)}}/>
-          </div>
-        </div>
-        <div className='row mb-3'>
-          <label>Description:</label>
-          <div className='col-sm'>
-          <input type="text" onChange={(event)=>{setDesc(event.target.value)}}/>
-          </div>
-        </div>
-        <div className='row mb-3'>
-          <label>Location:</label>
-          <div className='col-sm'>
-          <input type="text" onChange={(event)=>{setLocation(event.target.value)}}/>
-          </div>
-        </div>
-        <div className='row mb-3'>
-          <label>Stock:</label>
-          <div className='col-sm'>
-          <input type="number" min="0" onChange={(event)=>{setStock(event.target.value)}}/>
-          </div>
-        </div>
-        <div>
-        <button onClick={addItem} className="btn btn-dark mb-2">Add Item</button>
-        </div>
-        <button onClick={()=>setEdit()} className="btn btn-dark mb-2">Cancel</button>
-      </form>
-      }
-      <div className="items position-relative text-center">
-        <div className='float-sm-start mx-2'>
-          <Search query={query} onQueryChange={myQuery => setQuery(myQuery)}/>
-        </div>
-        <div className='float-sm-end mx-2'>
-        <DropdownButton sortByAsc={()=>sortByAsc()} sortByDesc={()=>sortByDesc()}/>
-        </div>
-        <table className="table table-bordered">
-          <thead className='table-dark sticky-top'>
-          <tr>
-            <th scope='col' className='col-sm-1'>Item</th>
-            <th scope='col' className='col-sm-3'>Description</th>
-            <th scope='col' className='col-sm-2'>Location</th>
-            <th scope='col' className='col-sm-1'>On Hand</th>
-            <th scope='col' className='col-sm-1'></th>
-          </tr>
-          </thead>
-          <tbody>
-        {filterItems.map((val, key) =>(//gets the items from the itemList useState array and displays name,description, location, and stock
-         <Edit key={val.id} item={val} onDelete={itemDel => cnfmDelete(val.id)} onUpdate={itemUpdate => updateItem(val.id)} onStockChange={handleChange} />
-        ))}
-          </tbody>
-        </table>
-      </div>
-      </div> */}
-  <div>
-    <div className="flex justify-between items-center">
+    </div>
+    :
+    <div>
+      <div className="flex justify-between items-center">
         <div className="flex"><h1 className="text-5xl mb-3 dark:text-white"><MdOutlineInventory className="inline-block text-blue-400"/>Inventory</h1></div>
         <div className="order-last mr-4"><BsFillMoonStarsFill onClick={()=> setDarkMode(!darkMode)} className='cursor-pointer text-2xl dark:text-yellow-200'/></div>
       </div>
@@ -315,11 +253,11 @@ const [edit, setEdit] = useState(false);
 </div>
 <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start  sm:pt-5">
   <label className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2  dark:text-white">
-    Part Number
+    Description
   </label>
   <div className="mt-1 sm:mt-0 sm:col-span-2">
     <textarea name="description" rows="3" onChange={(event)=>{setDesc(event.target.value)}}
-      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Part Number"></textarea>
+      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Description about the item"></textarea>
   </div>
 </div>
 
@@ -390,6 +328,7 @@ const [edit, setEdit] = useState(false);
         </ul>
       </div>
       </div>
+      }
     </div>
   );
 }
