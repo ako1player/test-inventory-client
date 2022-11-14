@@ -43,6 +43,8 @@ function App() {
   const [password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState(false);
 
+  const [darkMode, setDarkMode] = useState(false);
+
   Axios.defaults.withCredentials = true;
      const register = () =>{
        Axios.post('https://inventory-test-zukowski.herokuapp.com/register', {username: usernameReg, password: passwordReg}).then((response)=>{
