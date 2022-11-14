@@ -1,22 +1,9 @@
 import React from "react";
-import { useState, useCallback } from "react";
+import { useState} from "react";
 import {FaTimes} from "react-icons/fa";
 import { BiTrash } from "react-icons/bi";
 
 const Edit = ({item, onDelete, onUpdate, onStockChange}) =>{
-// // Hook
-// // Parameter is the boolean, with default "false" value
-//   const useToggle = (initialState = false) => {
-//     // Initialize the state
-//     const [state, setState] = useState(initialState);
-    
-//     // Define and memorize toggler function in case we pass down the component,
-//     // This function change the boolean value to it's opposite value
-//     const toggle = useCallback(() => setState(state => !state), []);
-    
-//     return [state, toggle]
-//   }
-
   const [edit, setEdit] = useState(false);
 
   return(
@@ -53,7 +40,7 @@ const Edit = ({item, onDelete, onUpdate, onStockChange}) =>{
             <b className="font-bold text-blue-500">Stock:</b>
              <p className="dark:text-white">{item.stock}</p>
           </div>
-          <div className="flex items-start"><b className="font-bold text-blue-500">Description:</b> <p className="dark:text-white">{item.description}</p></div>
+          <div className="flex items-start"><b className="font-bold text-blue-500">Part Number:</b> <p className="dark:text-white">{item.description}</p></div>
           </div>
         </li>
         :
@@ -70,7 +57,7 @@ const Edit = ({item, onDelete, onUpdate, onStockChange}) =>{
           </div>
           <div className="flex items-start"><b className="font-bold text-blue-500">Location:</b> <p className="dark:text-white">{item.location}</p></div>
           <div className="flex items-start"><b className="font-bold text-blue-500">Stock:</b><input type="number" defaultValue={item.stock} onChange={onStockChange} className="max-w-lg w-min shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md"/></div>
-          <div className="flex items-start"><b className="font-bold text-blue-500">Description:</b> <p className="dark:text-white">{item.description}</p></div>
+          <div className="flex items-start"><b className="font-bold text-blue-500">Part Number:</b> <p className="dark:text-white">{item.description}</p></div>
         </div>
         </li>
   )
