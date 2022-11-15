@@ -211,17 +211,23 @@ const [edit, setEdit] = useState(false);
             <input type="password" onChange={(e)=>{setPasswordReg(e.target.value)}}/>
             <button onClick={register}>Register</button> */}
       {!loginStatus ?
-      <div>
-      <h1>Login</h1>
-      <label>Username</label>
-      <input type="text" onChange={(e)=>{setUsername(e.target.value)}}/>
-      <label>Password</label>
-      <input type="password" onChange={(e)=>{setPassword(e.target.value)}}/>
-      <button onClick={login}>Login</button>
-      <h1>{loginStatus}</h1>
+      <div className="flex flex-col text-center place-content-center h-screen bg-cyan-100">
+        <h1 className="text-3xl mb-3">Zukowski Login</h1>
+        <div className="mb-2">
+        <label className="mr-2">Username</label>
+        <input type="text" onChange={(e)=>{setUsername(e.target.value)}} className="rounded"/>
+        </div>
+        <div>
+        <label className="mr-3">Password</label>
+        <input type="password" onChange={(e)=>{setPassword(e.target.value)}} className="rounded"/>
+        </div>
+        <span>
+        <button className="mt-3 px-2 border border-transparent rounded inline-flex justify-center text-white bg-blue-400 font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400" onClick={login}>Login</button>
+        </span>
     </div>
     :
     <div>
+              <h1>{loginStatus}</h1>
       <div className="flex justify-between items-center">
         <div className="flex"><h1 className="text-5xl mb-3 dark:text-white"><MdOutlineInventory className="inline-block text-blue-400"/>Inventory</h1></div>
         <div className="order-last mr-4"><BsFillMoonStarsFill onClick={()=> setDarkMode(!darkMode)} className='cursor-pointer text-2xl dark:text-yellow-200'/></div>
