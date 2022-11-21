@@ -31,13 +31,13 @@ function App() {
   //for updated items (still needs to be worked on)
   //const [newName, setNewName] = useState("");
   const [newStock, setNewStock] = useState(0);
-  const [newLocation, setNewLocation] = useState("");
+  // const [newLocation, setNewLocation] = useState("");
 
   //array of all items added to the database. name,desc, stock, location
   const [itemList, setItemList] = useState([]);
 
-  const [usernameReg, setUsernameReg] = useState("");
-  const [passwordReg, setPasswordReg] = useState("");
+  // const [usernameReg, setUsernameReg] = useState("");
+  // const [passwordReg, setPasswordReg] = useState("");
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -47,12 +47,12 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   Axios.defaults.withCredentials = true;
-     const register = () =>{
-      //  Axios.post('https://inventory-test-zukowski.herokuapp.com/register', {username: usernameReg, password: passwordReg}).then((response)=>{
-        Axios.post('https://www.adrianprojects.com/register', {username: usernameReg, password: passwordReg}).then((response)=>{ 
-      console.log(response);
-     })
-     };
+    //  const register = () =>{
+    //   //  Axios.post('https://inventory-test-zukowski.herokuapp.com/register', {username: usernameReg, password: passwordReg}).then((response)=>{
+    //     Axios.post('https://www.adrianprojects.com/register', {username: usernameReg, password: passwordReg}).then((response)=>{ 
+    //   console.log(response);
+    //  })
+    //  };
 
      const login = () =>{
       //Axios.post('https://inventory-test-zukowski.herokuapp.com/login', {username: username, password: password}).then((response)=>{
@@ -206,12 +206,12 @@ const [edit, setEdit] = useState(false);
   //Displays the table for the inventory. Using bootstrap css
   return (
     <div className={darkMode ? 'dark dark:mx-auto font-medium bg-gray-900' : " mx-auto font-medium"}>
-      <h1>Registration</h1>
+      {/* <h1>Registration</h1>
             <label>Username</label>
             <input type="text" onChange={(e)=>{setUsernameReg(e.target.value)}}/>
             <label>Password</label>
             <input type="password" onChange={(e)=>{setPasswordReg(e.target.value)}}/>
-            <button onClick={register}>Register</button>
+            <button onClick={register}>Register</button> */}
       {!loginStatus ?
       <div className="flex flex-col text-center place-content-center h-screen bg-cyan-100">
         <h1 className="text-3xl mb-3">Zukowski Login</h1>
