@@ -206,12 +206,12 @@ const [edit, setEdit] = useState(false);
   //Displays the table for the inventory. Using bootstrap css
   return (
     <div className={darkMode ? 'dark dark:mx-auto font-medium bg-gray-900' : " mx-auto font-medium"}>
-      {/* <h1>Registration</h1>
+      <h1>Registration</h1>
             <label>Username</label>
             <input type="text" onChange={(e)=>{setUsernameReg(e.target.value)}}/>
             <label>Password</label>
             <input type="password" onChange={(e)=>{setPasswordReg(e.target.value)}}/>
-            <button onClick={register}>Register</button> */}
+            <button onClick={register}>Register</button>
       {!loginStatus ?
       <div className="flex flex-col text-center place-content-center h-screen bg-cyan-100">
         <h1 className="text-3xl mb-3">Zukowski Login</h1>
