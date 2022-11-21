@@ -42,6 +42,7 @@ function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState(false);
+  const [loginMsg, setLoginMsg] = useState("");
 
   const [darkMode, setDarkMode] = useState(false);
 
@@ -58,6 +59,7 @@ function App() {
         Axios.post('https://www.adrianprojects.com/login', {username: username, password: password}).then((response)=>{  
       if(!response.data.auth){
           setLoginStatus(false);
+          setLoginMsg(response.data.message);
         } else {
           localStorage.setItem("token", response.data.token)
           setLoginStatus(true);
@@ -224,7 +226,8 @@ const [edit, setEdit] = useState(false);
         <span>
         <button className="mt-3 px-2 border border-transparent rounded inline-flex justify-center text-white bg-blue-400 font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400" onClick={login}>Login</button>
         </span>
-    </div>
+        <p>{loginMsg}</p>
+      </div>
     :
     <div>
               <h1>{loginStatus}</h1>
