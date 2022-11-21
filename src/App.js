@@ -156,6 +156,9 @@ const updateItem = (id) =>{
     });
     setNewStock(0);
   }
+  if(newStock <= 5){
+    alert("You are running low on stock");
+  }
 }
 
 
