@@ -126,6 +126,19 @@ const sortByAsc = () =>{
       setItemList(response.data);
   })
 }
+const sortByNew = () =>{
+  // Axios.get('https://inventory-test-zukowski.herokuapp.com/inventoryAsc').then((response) =>{
+    Axios.get('https://www.adrianprojects.com/inventory').then((response) =>{
+    setItemList(response.data);
+})
+}
+
+const sortByOld = () =>{
+  // Axios.get('https://inventory-test-zukowski.herokuapp.com/inventoryAsc').then((response) =>{
+    Axios.get('https://www.adrianprojects.com/inventoryOldest').then((response) =>{
+    setItemList(response.data);
+})
+}
 
   //deletes item from inventory using ID from the database
   const deleteItem = (id) =>{
@@ -322,7 +335,7 @@ const [edit, setEdit] = useState(false);
       //     <button onClick={()=>{setEdit()}} className="btn btn-dark mb-2">Cancel</button>
       // </form>
       }
-      <Search query={query} onQueryChange={myQuery => setQuery(myQuery)} sortByAsc={()=>sortByAsc()} sortByDesc={()=>sortByDesc()}/>
+      <Search query={query} onQueryChange={myQuery => setQuery(myQuery)} sortByAsc={()=>sortByAsc()} sortByDesc={()=>sortByDesc()} sortByNew={()=>sortByNew()} sortByOld={()=> sortByOld()}/>
       <div className="items position-relative text-center">
         {/* <DropdownButton sortByAsc={()=>sortByAsc()} sortByDesc={()=>sortByDesc()}/> */}
         {/* <table className="table table-bordered caption-top">

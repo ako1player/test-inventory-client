@@ -2,7 +2,7 @@ import {AiOutlineSearch} from "react-icons/ai";
 import { BiCaretDown } from "react-icons/bi";
 import { useState } from "react";
 
-const DropDown = ({toggle, sortByDesc, sortByAsc}) =>{
+const DropDown = ({toggle, sortByDesc, sortByAsc, sortByNew, sortByOld}) =>{
   if(!toggle){
     return null;
   }
@@ -16,12 +16,18 @@ const DropDown = ({toggle, sortByDesc, sortByAsc}) =>{
         <div onClick={sortByDesc}
           className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer dark:text-white dark:hover:bg-gray-500"
           role="menuitem">High to Low Stock</div>
+          <div onClick={sortByNew}
+          className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer dark:text-white dark:hover:bg-gray-500"
+          role="menuitem">Newest</div>
+          <div onClick={sortByOld}
+          className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 flex justify-between cursor-pointer dark:text-white dark:hover:bg-gray-500"
+          role="menuitem">Oldest</div>
       </div>
     </div>
   )
 }
 
-const Search = ({query, onQueryChange, sortByAsc, sortByDesc}) =>{
+const Search = ({query, onQueryChange, sortByAsc, sortByDesc, sortByNew, sortByOld}) =>{
     const [toggleSort, setToggleSort] = useState(false);
 
     return(
@@ -41,7 +47,9 @@ const Search = ({query, onQueryChange, sortByAsc, sortByDesc}) =>{
             </button>
             <DropDown toggle={toggleSort}
             sortByAsc={sortByAsc}
-            sortByDesc = {sortByDesc} />
+            sortByDesc = {sortByDesc}
+            sortByNew = {sortByNew}
+            sortByOld = {sortByOld} />
             </div>
           </div>
         </div>
