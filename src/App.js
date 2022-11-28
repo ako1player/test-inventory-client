@@ -195,14 +195,14 @@ const handleChange = (e) => {
 // } 
 
 //for cookie allowing user to stay logged in
-useEffect(() => {
-  // Axios.get("https://inventory-test-zukowski.herokuapp.com/login").then((response) =>{
-    Axios.get("https://www.adrianprojects.com/login").then((response) =>{
-    if(response.data.loggedIn === true){
-      setLoginStatus(response.data.user[0].username);
-    }
-  })
-}, []);
+// useEffect(() => {
+//   // Axios.get("https://inventory-test-zukowski.herokuapp.com/login").then((response) =>{
+//     Axios.get("https://www.adrianprojects.com/login").then((response) =>{
+//     if(response.data.loggedIn === true){
+//       setLoginStatus(response.data.user[0].username);
+//     }
+//   })
+// }, []);
 
 // Hook
 // Parameter is the boolean, with default "false" value
