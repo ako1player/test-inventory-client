@@ -55,8 +55,8 @@ function App() {
     //  };
 
      const login = () =>{
-      //Axios.post('https://inventory-test-zukowski.herokuapp.com/login', {username: username, password: password}).then((response)=>{
-        Axios.post('https://www.adrianprojects.com/login', {username: username, password: password}).then((response)=>{  
+      Axios.post('https://inventory-test-zukowski.herokuapp.com/login', {username: username, password: password}).then((response)=>{
+        // Axios.post('https://www.adrianprojects.com/login', {username: username, password: password}).then((response)=>{  
       if(!response.data.auth){
           setLoginStatus(false);
           setLoginMsg(response.data.message);
@@ -74,8 +74,8 @@ function App() {
       e.preventDefault();
     }
     else {
-    // Axios.post('https://inventory-test-zukowski.herokuapp.com/create', {
-      Axios.post('https://www.adrianprojects.com/create', {
+    Axios.post('https://inventory-test-zukowski.herokuapp.com/create', {
+      // Axios.post('https://www.adrianprojects.com/create', {
       name: name,
       desc: desc,
       stock: stock,
@@ -107,43 +107,43 @@ function App() {
 
   //displays inventory once browser is launched after npm start  
   useEffect(() =>{
-    // Axios.get('https://inventory-test-zukowski.herokuapp.com/inventory').then((response) =>{
-      Axios.get('https://www.adrianprojects.com/inventory').then((response) =>{
+     Axios.get('https://inventory-test-zukowski.herokuapp.com/inventory').then((response) =>{
+      //Axios.get('https://www.adrianprojects.com/inventory').then((response) =>{
       setItemList(response.data);
     });
   },[]);
 
   const sortByDesc = () =>{
-    // Axios.get('https://inventory-test-zukowski.herokuapp.com/inventoryDesc').then((response) =>{
-      Axios.get('https://www.adrianprojects.com/inventoryDesc').then((response) =>{
+     Axios.get('https://inventory-test-zukowski.herokuapp.com/inventoryDesc').then((response) =>{
+     //Axios.get('https://www.adrianprojects.com/inventoryDesc').then((response) =>{
       setItemList(response.data);
   })
 }
 
 const sortByAsc = () =>{
-    // Axios.get('https://inventory-test-zukowski.herokuapp.com/inventoryAsc').then((response) =>{
-      Axios.get('https://www.adrianprojects.com/inventoryAsc').then((response) =>{
+     Axios.get('https://inventory-test-zukowski.herokuapp.com/inventoryAsc').then((response) =>{
+      //Axios.get('https://www.adrianprojects.com/inventoryAsc').then((response) =>{
       setItemList(response.data);
   })
 }
 const sortByNew = () =>{
-  // Axios.get('https://inventory-test-zukowski.herokuapp.com/inventoryAsc').then((response) =>{
-    Axios.get('https://www.adrianprojects.com/inventory').then((response) =>{
+    Axios.get('https://inventory-test-zukowski.herokuapp.com/inventory').then((response) =>{
+    //Axios.get('https://www.adrianprojects.com/inventory').then((response) =>{
     setItemList(response.data);
 })
 }
 
 const sortByOld = () =>{
-  // Axios.get('https://inventory-test-zukowski.herokuapp.com/inventoryAsc').then((response) =>{
-    Axios.get('https://www.adrianprojects.com/inventoryOldest').then((response) =>{
+   Axios.get('https://inventory-test-zukowski.herokuapp.com/inventoryOldest').then((response) =>{
+    //Axios.get('https://www.adrianprojects.com/inventoryOldest').then((response) =>{
     setItemList(response.data);
 })
 }
 
   //deletes item from inventory using ID from the database
   const deleteItem = (id) =>{
-    // Axios.delete(`https://inventory-test-zukowski.herokuapp.com/delete/${id}`).then((response) =>{
-      Axios.delete(`https://www.adrianprojects.com/delete/${id}`).then((response) =>{
+     Axios.delete(`https://inventory-test-zukowski.herokuapp.com/delete/${id}`).then((response) =>{
+      //Axios.delete(`https://www.adrianprojects.com/delete/${id}`).then((response) =>{
         setItemList(itemList.filter((val) =>{
             return val.id !== id
         }))
@@ -155,8 +155,8 @@ const updateItem = (id) =>{
   if(stock === newStock){
     setStock(stock);
   } else {
-    // Axios.put('https://inventory-test-zukowski.herokuapp.com/update/', { stock: newStock, id: id}).then((response) =>{
-      Axios.put('https://www.adrianprojects.com/update/', { stock: newStock, id: id}).then((response) =>{
+     Axios.put('https://inventory-test-zukowski.herokuapp.com/update/', { stock: newStock, id: id}).then((response) =>{
+      //Axios.put('https://www.adrianprojects.com/update/', { stock: newStock, id: id}).then((response) =>{
       setItemList(itemList.map((val) =>{
         //this just rerenders page once updated
         return val.id === id ? 
@@ -195,14 +195,14 @@ const handleChange = (e) => {
 // } 
 
 //for cookie allowing user to stay logged in
-// useEffect(() => {
-//   // Axios.get("https://inventory-test-zukowski.herokuapp.com/login").then((response) =>{
-//     Axios.get("https://www.adrianprojects.com/login").then((response) =>{
-//     if(response.data.loggedIn === true){
-//       setLoginStatus(response.data.user[0].username);
-//     }
-//   })
-// }, []);
+useEffect(() => {
+   Axios.get("https://inventory-test-zukowski.herokuapp.com/login").then((response) =>{
+    //Axios.get("https://www.adrianprojects.com/login").then((response) =>{
+    if(response.data.loggedIn === true){
+      setLoginStatus(response.data.user[0].username);
+    }
+  })
+}, []);
 
 // Hook
 // Parameter is the boolean, with default "false" value
