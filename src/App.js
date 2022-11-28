@@ -71,7 +71,7 @@ function App() {
   const addItem = (e) =>{
     if(name.trim().length === 0 || desc.trim().length === 0 || location.trim().length === 0){
       alert("Name/Description/Location is required");
-      // e.preventDefault();
+      e.preventDefault();
     }
     else {
     Axios.post('https://inventory-test-zukowski.herokuapp.com/create', {
@@ -93,8 +93,16 @@ function App() {
     setLocation("");
     setStock(0);
     setEdit();
+    getItem();
   }
   };
+
+  const getItem = () =>{
+    Axios.get('https://inventory-test-zukowski.herokuapp.com/inventory').then((response) =>{
+      //Axios.get('https://www.adrianprojects.com/inventory').then((response) =>{
+      setItemList(response.data);
+    });
+  }
 
   //filters items when using seach bar
   const filterItems = itemList.filter(
