@@ -87,13 +87,13 @@ function App() {
           stock: stock,
           location: location,
         }, ...itemList,]);
+        getItem();
     });
     setName("");
     setDesc("");
     setLocation("");
     setStock(0);
     setEdit();
-    getItem();
   }
   };
 
