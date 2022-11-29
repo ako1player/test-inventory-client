@@ -130,7 +130,7 @@ function App() {
 
 const sortByAsc = () =>{
      //Axios.get('https://inventory-test-zukowski.herokuapp.com/inventoryAsc').then((response) =>{
-    Axios.get('https://www.adrianprojects.com/inventoryAsc').then((response) =>{
+    Axios.get('https://www.heroku.adrianprojects.com/inventoryAsc').then((response) =>{
       setItemList(response.data);
   })
 }
