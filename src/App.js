@@ -254,7 +254,6 @@ const [edit, setEdit] = useState(false);
       </div>
     :
     <div>
-              <h1>{loginStatus}</h1>
       <div className="flex justify-between items-center">
         <div className="flex"><h1 className="text-5xl mb-3 dark:text-white"><MdOutlineInventory className="inline-block text-blue-400"/>Inventory</h1></div>
         <div className="order-last mr-4"><BsFillMoonStarsFill onClick={()=> setDarkMode(!darkMode)} className='cursor-pointer text-2xl dark:text-yellow-200'/></div>
