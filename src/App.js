@@ -311,57 +311,9 @@ const [edit, setEdit] = useState(false);
   </div>
 </div>
 </div>
-      // <form className='text-center pt-3 mb-3'>
-      //   <div className='row mb-3'>
-      //     <label>Item Name:</label>
-      //     <div className='col-sm'>
-      //     <input type="text" onChange={(event)=>{setName(event.target.value)}}/>
-      //     </div>
-      //   </div>
-      //   <div className='row mb-3'>
-      //     <label>Description:</label>
-      //     <div className='col-sm'>
-      //     <input type="text" onChange={(event)=>{setDesc(event.target.value)}}/>
-      //     </div>
-      //   </div>
-      //   <div className='row mb-3'>
-      //     <label>Location:</label>
-      //     <div className='col-sm'>
-      //     <input type="text" onChange={(event)=>{setLocation(event.target.value)}}/>
-      //     </div>
-      //   </div>
-      //   <div className='row mb-3'>
-      //     <label>Stock:</label>
-      //     <div className='col-sm'>
-      //     <input type="number" min="0" onChange={(event)=>{setStock(event.target.value)}}/>
-      //     </div>
-      //   </div>
-      //   <div>
-      //   <button onClick={addItem} className="btn btn-dark mb-2">Add Item</button>
-      //   </div>
-      //     <button onClick={()=>{setEdit()}} className="btn btn-dark mb-2">Cancel</button>
-      // </form>
-      }
+  }
       <Search query={query} onQueryChange={myQuery => setQuery(myQuery)} sortByAsc={()=>sortByAsc()} sortByDesc={()=>sortByDesc()} sortByNew={()=>sortByNew()} sortByOld={()=> sortByOld()}/>
       <div className="items position-relative text-center">
-        {/* <DropdownButton sortByAsc={()=>sortByAsc()} sortByDesc={()=>sortByDesc()}/> */}
-        {/* <table className="table table-bordered caption-top">
-          <caption>Inventory</caption>
-          <thead className='table-dark sticky-top'>
-          <tr>
-            <th scope='col' className='col-sm-1 '>Item</th>
-            <th scope='col' className='col-sm-3'>Description</th>
-            <th scope='col' className='col-sm-2'>Location</th>
-            <th scope='col' className='col-sm-1'>On Hand</th>
-            <th scope='col' className='col-sm-1'>Actions</th>
-          </tr>
-          </thead>
-          <tbody>
-        {filterItems.map((val, key) =>(//gets the items from the itemList useState array and displays name,description, location, and stock
-         <Edit key={val.id} item={val} onDelete={itemDel => cnfmDelete(val.id)} onUpdate={itemUpdate => updateItem(val.id)} onStockChange={handleChange} />
-        ))}
-          </tbody>
-        </table> */}
         <ul className="divide-y divide-gray-200 dark:divide-gray-600">
         {filterItems.map((val, key) =>(//gets the items from the itemList useState array and displays name,description, location, and stock
          <Edit key={val.id} item={val} onDelete={itemDel => cnfmDelete(val.id)} onUpdate={itemUpdate => updateItem(val.id)} onStockChange={handleChange} />
